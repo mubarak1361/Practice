@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="topic"
+            type="com.app.practice.model.CompetencyTopic" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="16dp"/>
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintStart_toEndOf="@id/guidelineStart"
+        app:layout_constraintEnd_toStartOf="@id/imageDropDown"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop"
+        app:layout_constraintBottom_toTopOf="@id/barrierBottom"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="@{topic.name}"
+        tools:text="Industrial Goods"/>
+
+    <ImageView
+        android:id="@+id/imageDropDown"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toEndOf="@id/textTitle"
+        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="@id/textTitle"
+        app:layout_constraintBottom_toBottomOf="@id/textTitle"
+        android:rotation="270"
+        android:src="@drawable/ic_dropdown"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="textRoles,guidelineBottom"/>
+
+    <TextView
+        android:id="@+id/textRoles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineStart"
+        app:layout_constraintEnd_toStartOf="@id/textRolesHypen"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        app:layout_constraintBottom_toTopOf="@id/textPaAffiliation"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:textSize="16sp"
+        android:text="Roles"/>
+
+    <TextView
+        android:id="@+id/textPaAffiliation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintStart_toEndOf="@id/guidelineStart"
+        app:layout_constraintEnd_toStartOf="@id/textLevels"
+        app:layout_constraintTop_toTopOf="@id/textRoles"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:textSize="16sp"
+        android:text="PA Affiliation"/>
+
+    <TextView
+        android:id="@+id/textRolesHypen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/textRoles"
+        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="@id/textRoles"
+        app:layout_constraintBottom_toBottomOf="@id/textRoles"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/textLevels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/textPaAffiliation"
+        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="@id/textPaAffiliation"
+        app:layout_constraintBottom_toBottomOf="@id/textPaAffiliation"
+        android:textSize="16sp"
+        android:text="@{topic.level}"
+        tools:text="LEAD"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="textRoles,textRolesHypen,textPaAffiliation,textLevels"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
