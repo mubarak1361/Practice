@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.app.practice.adapter.CompetencyTopicListAdapter
 import com.app.practice.model.CompetencyTopic
-
+//https://medium.com/@sneha.bhat/expand-collapse-animation-in-recyclerview-a17021186315
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
